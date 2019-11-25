@@ -16,6 +16,8 @@ public interface CustomerDAO {
 	public int deleteCustomer(int theId);
 	
 	public Object customerLoginCheck(String mobilenumber);
+
+	
 	
 	
 	

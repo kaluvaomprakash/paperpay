@@ -61,13 +61,32 @@ public class hackersDaoimp implements hackerdao{
 			return theQuery.executeUpdate();		
 	}
 	@Override
-	public Object hackerLoginCheck(String mobilenumber) {
-		// get the current hibernate session
+	public List<hacker> hackerLoginCheck(String mobilenumber) {
 				Session currentSession = sessionFactory.getCurrentSession();
-				// now retrieve/read from database using the primary key
 				Query theQuery = currentSession.createQuery("select count(mobile_number) as mcount from hacker where mobile_number=:mNum");
 				theQuery.setParameter("mNum", mobilenumber);
-				return theQuery.uniqueResult();
+				System.out.println("output1 "+theQuery.uniqueResult());
+				int count = Integer.parseInt(theQuery.uniqueResult().toString());
+				System.out.println("count "+count);
+				if(count>=1) { 
+					  System.out.println("count of select "+count); 
+					  theQuery = currentSession.createQuery("select id from hacker where mobile_number=:mNum");
+				  theQuery.setParameter("mNum", mobilenumber);
+				  System.out.println("after running query "+theQuery.uniqueResult());
+				  int hak_id = Integer.parseInt(theQuery.uniqueResult().toString());
+				  theQuery = currentSession.createQuery("from Customer where hId=:hackrId");
+				  theQuery.setParameter("hackrId", hak_id);
+				  List<hacker> hackers = theQuery.list();
+				  System.out.println(hackers);
+			return hackers;
+				  
+				  } else { 
+					  System.out.println("in else");
+				  System.out.println(theQuery.uniqueResult());
+				  return (List<hacker>) theQuery.uniqueResult();
+				  }
+				
+		//return null;
 	}
 
 }

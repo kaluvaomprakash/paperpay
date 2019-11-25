@@ -17,6 +17,8 @@ public interface CustomerService {
 	
 	public Object checkCustomerlogin(String mobilenumber);
 	
+	
+	
 //*****hackers things
 	
 	public List<hacker> getHackers();
@@ -27,7 +29,7 @@ public interface CustomerService {
 
 	public int deletehacker(int theId);
 	
-	public Object checkHackerlogin(String mobilenumber);
+	public List<hacker> checkHackerlogin(String mobilenumber);
 	
 	
 	

@@ -80,9 +80,11 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	@Transactional
-	public Object checkHackerlogin(String mobilenumber) {
+	public List<hacker> checkHackerlogin(String mobilenumber) {
 		return hakcerdao.hackerLoginCheck(mobilenumber);
 	}
+
+	
 }
 
 

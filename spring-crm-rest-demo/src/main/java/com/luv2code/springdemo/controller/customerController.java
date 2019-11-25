@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.luv2code.springdemo.entity.Customer;
+import com.luv2code.springdemo.entity.hacker;
 import com.luv2code.springdemo.service.CustomerService;
 
 @RestController
@@ -50,5 +51,6 @@ public class customerController {
 		return customerservice.checkCustomerlogin(mNumber);
 		
 	}
+	
 	
 }

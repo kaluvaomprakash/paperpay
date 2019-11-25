@@ -14,5 +14,5 @@ public interface hackerdao {
 
 	public int deleteahacker(int theId);
 	
-	public Object hackerLoginCheck(String mobilenumber);
+	public List<hacker> hackerLoginCheck(String mobilenumber);
 }
